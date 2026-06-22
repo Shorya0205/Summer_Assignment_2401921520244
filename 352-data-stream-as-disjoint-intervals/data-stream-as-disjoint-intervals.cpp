@@ -11,25 +11,31 @@ public:
     }
     
     vector<vector<int>> getIntervals() {
-        vector<int>nums(st.begin(),st.end());
+    vector<int> nums(st.begin(), st.end());
+    sort(nums.begin(), nums.end());
 
-        sort(nums.begin(),nums.end());
+    vector<vector<int>> result;
+    int n = nums.size();
 
-        vector<vector<int>>result;
-        int n=nums.size();
+    if(n == 0) return result;
 
-        for(int i=0;i<n;i++){
-            int l=nums[i];
+    int l = nums[0];
 
-            while(i< n-1 && nums[i+1]==nums[i]+1){
-                i++;
-            }
+    for(int i = 0; i < n; i++) {
 
-           result.push_back({l,nums[i]});
-
+        if(i < n-1 && nums[i+1] == nums[i] + 1) {
+            continue;
         }
-        return result;
+
+        result.push_back({l, nums[i]});
+
+        if(i < n-1) {
+            l = nums[i+1];
+        }
     }
+
+    return result;
+}
 };
 
 /**
