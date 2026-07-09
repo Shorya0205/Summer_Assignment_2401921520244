@@ -25,7 +25,7 @@ public:
             maxdr=max(maxdr,dr);
             int val = nums[j];
             arr[dr] += val;
-            arr[dr]+=num;
+            
         }
 
         for(int i=0;i<arr.size();i++){
